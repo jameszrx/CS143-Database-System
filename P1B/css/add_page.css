@@ -1,0 +1,18 @@
+.topside{
+	background-color: #84a3e0;
+	color: black;
+	margin-bottom: 0px;
+}
+
+.leftside{
+	background-color: #F5F5F5;
+	max-height: 100%;
+}
+
+.container{
+	margin-left: 0px;
+}
+
+.req{
+	color:red;
+}

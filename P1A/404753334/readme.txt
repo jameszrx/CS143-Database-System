@@ -1,0 +1,1 @@
+This folder contains all the source files of project 1A, including sql scripts and a php file.

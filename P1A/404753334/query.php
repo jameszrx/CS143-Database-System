@@ -5,9 +5,9 @@
 		<h2><strong>Database Query Interface</strong></h2>
 		
 
-		<!-- Input form -->
+		<!-- Input form /~cs143/Project_1A/query.php-->
 		<p>
-		<form action="/~cs143/Project_1A/query.php" method="POST">
+		<form action="<?php $_PHP_SELF?>" method="POST">
 			<h3>Please input your database query here!</h3>
 			<textarea name="query" cols="80" rows="10" placeholder="Please type your SQL query here."></textarea>
 			<input type="submit" value="submit"/>
@@ -21,7 +21,7 @@
 			$db_connection = mysql_connect("localhost", "cs143", "");
 
 			//Select a database
-			mysql_select_db("TEST", $db_connection);
+			mysql_select_db("CS143", $db_connection);
 
 			//Extract query content from the request
 			$userquery = $_POST["query"];
