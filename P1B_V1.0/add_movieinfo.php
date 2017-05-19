@@ -63,6 +63,27 @@
 						<br>
 						Company: <input type="text" class="form-control" name="company" placeholder="eg: Universal"/>
 						<br>
+						Genre: 
+						<input type="checkbox" name="genre[]" value="Action">Action</input>
+	                    <input type="checkbox" name="genre[]" value="Adult">Adult</input>
+	                    <input type="checkbox" name="genre[]" value="Adventure">Adventure</input>
+	                    <input type="checkbox" name="genre[]" value="Animation">Animation</input>
+	                    <input type="checkbox" name="genre[]" value="Comedy">Comedy</input>
+	                    <input type="checkbox" name="genre[]" value="Crime">Crime</input>
+	                    <input type="checkbox" name="genre[]" value="Documentary">Documentary</input>
+	                    <input type="checkbox" name="genre[]" value="Drama">Drama</input>
+	                    <input type="checkbox" name="genre[]" value="Family">Family</input>
+	                    <input type="checkbox" name="genre[]" value="Fantasy">Fantasy</input>
+	                    <input type="checkbox" name="genre[]" value="Horror">Horror</input>
+	                    <input type="checkbox" name="genre[]" value="Musical">Musical</input>
+	                    <input type="checkbox" name="genre[]" value="Mystery">Mystery</input>
+	                    <input type="checkbox" name="genre[]" value="Romance">Romance</input>
+	                    <input type="checkbox" name="genre[]" value="Sci-Fi">Sci-Fi</input>
+	                    <input type="checkbox" name="genre[]" value="Short">Short</input>
+	                    <input type="checkbox" name="genre[]" value="Thriller">Thriller</input>
+	                    <input type="checkbox" name="genre[]" value="War">War</input>
+	                    <input type="checkbox" name="genre[]" value="Western">Western</input>
+						<br>
 						<input type="submit" value="submit" class="btn btn-primary"/>
 					</form>
 
@@ -120,7 +141,22 @@
 									echo "<strong>Insertion successful!</strong>";
 									echo "<br>";
 									echo "<strong>The id of the new record is : " . $id . ".</strong>";
+									echo "<br>";
 								}
+
+								$genre = $_POST["genre"];
+								for($i=0; $i < count($genre); $i++){
+									$igenre = $genre[$i];
+									$genre_query = "INSERT INTO MovieGenre VALUES ('$id', '$igenre')";
+									$genre_result = mysqli_query($db_connection, $genre_query);
+									if($genre_result){
+										echo "<strong>Your No.$i genre ($igenre) classification has been inserted successfully.</strong>";
+										echo "<br>";
+									} else {
+										echo ('Invalid query: ' . mysqli_error($db_connection));
+									}
+								}
+
 								mysqli_free_result($insert_result);
 								mysqli_close($db_connection);
 					  	}
